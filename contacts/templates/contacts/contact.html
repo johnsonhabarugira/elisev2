@@ -1,0 +1,102 @@
+{% load static %}
+{% include 'header.html'%}
+
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+              <div class="cta-content">
+                  <br>
+                  <br>
+                  <h2>Feel free to <em>Contact Us</em></h2>
+                  <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- ***** Features Item Start ***** -->
+<section class="section" id="features">
+  <div class="container">
+      <div class="row text-center">
+          <div class="col-lg-6 offset-lg-3">
+              <div class="section-heading">
+                  <h2>contact <em> info</em></h2>
+                  <img src="assets/images/line-dec.png" alt="waves">
+                  
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="icon">
+                  <i class="fa fa-phone"></i>
+              </div>
+
+              <h5><a href="tel:{{ company_cont.phone_number }}">{{ company_cont.phone_number }}</a></h5>
+
+              <br>
+          </div>
+          <div class="col-md-4">
+              <div class="icon">
+                  <i class="fa fa-envelope"></i>
+              </div>
+
+              <h5><a href="mailto:{{ company_cont.email }}">{{ company_cont.email }}</a></h5>
+
+              <br>
+          </div>
+
+          <div class="col-md-4">
+              <div class="icon">
+                  <i class="fa fa-map-marker"></i>
+              </div>
+
+              <h5>{{ company_cont.address_location }}</h5>
+
+              <br>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- ***** Features Item End ***** -->
+
+<!-- ***** Contact Us Area Starts ***** -->
+<section class="section" id="contact-us" style="margin-top: 0">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-xs-12">
+              <div id="map">
+                <iframe src=#" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-12">
+              <div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
+                  <form id="contact" action="" method="post">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <fieldset>
+                          
+  {% csrf_token %}
+  {{ form.as_p }}
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12">
+                        <fieldset>
+                          <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- ***** Contact Us Area Ends ***** -->
+
+
+
+
+
+{% include 'footer.html'%}

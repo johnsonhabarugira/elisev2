@@ -1,0 +1,296 @@
+{% load static %}
+ {% include 'header.html'%}
+
+    <!-- ***** Call to Action Start ***** -->
+    <section class="section section-bg" id="call-to-action" style="background-image: url(/static/assets/images/banner-image-1-1920x500.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cta-content">
+                        <br>
+                        <br>
+                        <h2>Our <em>Cars</em></h2>
+                        <p>Discover Our Impressive Selection of Cars</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Call to Action End ***** -->
+
+    <!-- ***** Fleet Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <br>
+            <br>
+            <div class="contact-form">
+                <!--<form action="{% url 'vehicles' %}" id="contact" method="get">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Used/New:</label>
+                     
+                                 <select>
+                                      <option value="">All</option>
+                                      <option value="new">New vehicle</option>
+                                      <option value="used">Used vehicle</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Vehicle Type:</label>
+                     
+                                 <select>
+                                      <option value="">automatics</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Make:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Model:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Price:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Mileage:</label>
+                     
+                                 <select name="search_query">
+                                      <option value="">-- Allsd --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Engine size:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Power:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Fuel:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Gearbox:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Doors:</label>
+                     
+                                 <select>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Number of seats:</label>
+                     
+                                 <select name="search_query">
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                      <option value="">-- All --</option>
+                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 offset-sm-4">
+                      <div class="main-button text-center">
+                          <a href="#">Search</a>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                </form>
+                    <input type="text" name="search_query" value="{{search_query}}" placeholder="Search Car" class="col-md-10">
+                    <input type="text" name="" value="" placeholder="Search Car" class="col-md-10">
+            -->
+                <div class="contact-form">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Make:</label>
+                                    <select type="text" name="make">
+                                        <option value="" disabled selected>{{Car.make}}</option>
+                                        {% for Car in allvehicles %}
+                                        <option value="{{Car.make}}">{{Car.make}}</option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">Model:</label>
+                                    <select type="text" name="model">
+                                        <option value="" disabled selected>{{make}}</option>
+                                        {% for Car in allvehicles %}
+                                        <option value="{{Car.model}}">{{Car.model}}</option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="">vehicle/type</label>
+                                    <select type="text" name="make">
+                                        <option type="text" name="type" value="{{type}}" disabled selected>{{make}}</option>
+                                        {% for Car in allvehicles %}
+                                        <option value="{{Car.type}}">{{Car.type}}</option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-4 offset-sm-4">
+                              <div class="main-button text-center">
+                                <button>Search</button>
+                              </div>
+                    </form>
+                </div>        
+                <!-- template code for the search form -->
+
+  
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <div class="row">
+                
+{% for Car in allvehicles %}
+
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <img src="{{Car.image_1.url}}"alt="" style="width: 100%;height: 300px;object-fit: cover;">
+                        </div>
+                        <div class="down-content">
+                            <span>
+                               <!-- <del><sup>$</sup>11999 </del>--> &nbsp; <sup>$</sup>{{ Car.price }}
+                            </span>
+
+                            <h4>{{ Car.title}}</h4>
+
+                            <p>
+                                <i class="fa fa-dashboard"></i> {{ Car.mileage }} Km &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cube"></i>{{ Car.engine }}  cc &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog"></i>   {{Car.transmission}} &nbsp;&nbsp;&nbsp;
+                            </p>
+
+                            <ul class="social-icons">
+                                <li><a href="{% url 'carviewer' Car.id %}">+ View Car</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+{% endfor %}
+            </div>
+
+
+            {% include 'pagination.html' with queryset=allvehicles custom_range=custom_range %}
+        </div>
+    </section>
+
+{% include 'footer.html'%}
