@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Cars - Al Elise The Cars{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+{% endblock %}

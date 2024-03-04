@@ -1,9 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Al Elise The Cars{% endblock %}
+
+{% block content %}
 {% load static %}
- {% include 'header.html'%}
 
 
- 
- <section class="section section-bg" id="call-to-action" style="background-image: url(/static/assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(/static/assets/images/banner-image-1-1920x500.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -68,6 +71,5 @@
 
 
 
-{% include 'footer.html'%}
 
-
+{% endblock %}

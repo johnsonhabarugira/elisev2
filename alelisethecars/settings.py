@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,18 +22,19 @@ import environ
 
 env = environ.Env()
 environ.Env.read_env()
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&(4foz&q+27sa5vsm4t@-wcq57vt6u(%%-+1u1li%uk%f8lsd5'
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.alelisethecars.com', 'alelisethecars.com','127.0.0.1','alelisethecars.onrender.com']
+
+
 
 
 # Application definition
@@ -43,15 +46,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
-    'users.apps.UsersConfig',
-    'products.apps.ProductsConfig',
-    'blog.apps.BlogConfig',
+    'home',
+    'users',
+    'products',
+    'storages',
     'about.apps.AboutConfig',
-    'team.apps.TeamConfig',
     'contacts.apps.ContactsConfig',
-    'faq.apps.FaqConfig',
-    'termsandconditions.apps.TermsandconditionsConfig'
+    'blog',
+    'faq',
+    'team',
+    'termsandconditions',
+    'geolocation',
 ]
 
 MIDDLEWARE = [
@@ -102,9 +107,19 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.parse(env('DATABASE_URL'))
 }
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'alelisedatab',
+        'USER': 'johnsondev',
+        'PASSWORD': 'johnsondev.1',
+        'HOST': 'alelisedatab.cqxvs6nodyt5.eu-north-1.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
-
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -147,4 +162,16 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME='johnsonhaba-alelise'
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL=None
+DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_SIGNATURE_VERSION='s3v4'
+AWS_S3_REGION_NAME='ap-south-1'
+AWS_LOCATION='static'
+STATICFILES_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
+

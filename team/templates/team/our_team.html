@@ -1,48 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Team - Al Elise The Cars{% endblock %}
+
+{% block content %}
 {% load static %}
-{%include 'header.html'%}
-    <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cta-content">
-                        <br>
-                        <br>
-                        <h2>Meet our <em>Team</em></h2>
-                    </div>
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2>Meet our <em>Team</em></h2>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section" id="trainers">
-        <div class="container">
-            <br>
-            <br>
-            <div class="row">
+<section class="section" id="trainers">
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
 
 {% for member in team_members %}
-                <div class="col-md-3 col-sm-6">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{ member.profile_image.url }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>{{ member.position }}</span>
-                            <h4>{{ member.name }}</h4>
-                            <p>{{ member.bio }}</p>
-                            <ul class="social-icons">
-                                <li><a href="{{ member.Social_facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="{{ member.Social_twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="{{ member.Social_whatsapp }}"target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-                                <li><a href="{{ member.phone_number }}"target="_blank"><i class="fa fa-phone"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{{ member.profile_image.url }}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>{{ member.position }}</span>
+                        <h4>{{ member.name }}</h4>
+                        <p>{{ member.bio }}</p>
+                        <ul class="social-icons">
+                            <li><a href="{{ member.Social_facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="{{ member.Social_twitter }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{ member.Social_whatsapp }}"target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="{{ member.phone_number }}"target="_blank"><i class="fa fa-phone"></i></a></li>
+                            <li><a href="{{ member.social_instagram }}"target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
                     </div>
                 </div>
-                {% empty %}
-                    <p>No team members found.</p>
-                {% endfor %}
             </div>
+            {% empty %}
+                <p>No team members found.</p>
+            {% endfor %}
         </div>
-    </section>
-    {% include 'footer.html'%}
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,175 +1,235 @@
+<!-- home.html -->
+{% extends 'base.html' %}
 
+{% block title %}Home - Al Elise The Cars{% endblock %}
+
+{% block content %}
 {% load static %}
-{% include 'header.html'%}
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="{% static 'assets/images/video.mp4'%}" type="image/png" />
-        </video>
+<style>.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+  
+  .banner-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('your-image-url-here');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .banner-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* adjust opacity as needed */
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1; /* make sure content is on top of overlay */
+  }
+  
+  .banner-content h1 {
+    margin-top: 0px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+  
+  .banner-content .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+</style>
+ <!-- ***** Preloader Start ***** -->
+  <!-- ***** Preloader End ***** -->
 
-        <div class="video-overlay header-text">
-            <div class="caption">
-                <h6>Welcome to our car dealership, where your dream car awaits!</h6>
-                <h2>Best <em>car dealer</em> in Dubai</h2>
-                <div class="main-button">
-                    <a href="contact.html">Contact Us</a>
+
+
+
+  
+<section class="banner">
+    {% for banner_image in banner_images %}
+    <div class="banner-image" style="background-image: url('{{ banner_image.image.url }}');">
+      <div class="banner-content">
+        <h1>{{ banner_image.title }}</h1>
+        
+        <div class="main-button">
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+
+
+
+
+
+
+
+
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Featured <em>Cars</em></h2>
+                    <img src="{% static 'assets/images/line-dec.png'%}" alt="">
+                    <p>Discover our featured cars! Our car dealership offers a selection of high-quality vehicles, including the latest models and pre-owned options. Browse our website to see our current selection of featured cars and find the perfect one for you. Contact us to schedule a test drive and experience the excellence of our featured cars today.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for Car in featurecars|slice:":3" %}
+            
+                           <a href="{% url 'carviewer' Car.id %}">
+                            <div class="col-lg-4">
+                                <div class="trainer-item">
+                                    <div class="image-thumb">
+                                        <img src="{{Car.image_1.url}}"alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <span>
+                                            <i class="fa fa-eye"></i>{{ Car.page_visits }} &nbsp;&nbsp;&nbsp;
+                                        </span>
+            
+                                        <h4>{{ Car.title}}</h4>
+            
+                                        <p>
+                                            <i class="fa fa-dashboard"></i> {{ Car.mileage }}  &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cube"></i>{{ Car.engine }}   &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cog"></i>   {{Car.transmission}} &nbsp;&nbsp;&nbsp;
+                                        </p>
+            
+                                        <ul class="social-icons">
+                                            <li><a href="{% url 'carviewer' Car.id %}">+ View Car</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a> 
+            {% endfor %}
+        </div>
+
+        <br>
+        <div class="main-button text-center">
+            <a href="vehicles">View Cars</a>
+        </div>
+    </div>
+</section>
+<!-- ***** Cars Ends ***** -->
+
+<section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading dark-bg">
+                    <h2>Read <em>About Us</em></h2>
+                    <img src="assets/images/line-dec.png" alt="">
+                    <p> Welcome to  Al Elise the cars,trusted source of high-quality vehicles to export Africa,Asia and Europe are proud to serve our community with exceptional customer service and an extensive inventory of new and used cars, trucks and machinery.
+                            
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-content text-center">
+                    <p>
+
+                       
+            <div class="main-button">
+                <a href="{% url 'about'%}">Read more</a>
+            </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+</section>
 
-    <section class="section" id="trainers">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Featured <em>Cars</em></h2>
-                        <img src="{% static 'assets/images/line-dec.png'%}" alt="">
-                        <p>Discover our featured cars! Our car dealership offers a selection of high-quality vehicles, including the latest models and pre-owned options. Browse our website to see our current selection of featured cars and find the perfect one for you. Contact us to schedule a test drive and experience the excellence of our featured cars today.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                {% for Car in featurecars|slice:":3" %}
-                
-                                <div class="col-lg-4">
-                                    <div class="trainer-item">
-                                        <div class="image-thumb">
-                                            <img src="{{Car.image_1.url}}"alt="">
-                                        </div>
-                                        <div class="down-content">
-                                            <span>
-                                               <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>{{ Car.price }}
-                                            </span>
-                
-                                            <h4>{{ Car.title}}</h4>
-                
-                                            <p>
-                                                <i class="fa fa-dashboard"></i> {{ Car.mileage }} Km &nbsp;&nbsp;&nbsp;
-                                                <i class="fa fa-cube"></i>{{ Car.engine }}  cc &nbsp;&nbsp;&nbsp;
-                                                <i class="fa fa-cog"></i>   {{Car.transmission}} &nbsp;&nbsp;&nbsp;
-                                            </p>
-                
-                                            <ul class="social-icons">
-                                                <li><a href="{% url 'carviewer' Car.id %}">+ View Car</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                {% endfor %}
-            </div>
-
-            <br>
-            <div class="main-button text-center">
-                <a href="vehicles">View Cars</a>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Cars Ends ***** -->
-
-    <section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading dark-bg">
-                        <h2>Read <em>About Us</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
-                        <p> Welcome to  Al Elise the cars,trusted source of high-quality vehicles to export Africa,Asia and Europe are proud to serve our community with exceptional customer service and an extensive inventory of new and used cars, trucks and machinery.
-                                
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="cta-content text-center">
-                        <p>
-
-                           
-                            
-                           <p> We have been established moto vehicles dealership since 2007s We have been providing quality vehicles to Government agencies, NGOs, Hospitals, Embassies, Businesses, and private customers at discounted rates.
-                            We offer consumer vehicles and light commercial vehicles from Toyota, Honda, Nissan, Mitsubishi, Mercedes Benz and etc. If you’re looking for cars with Right-hand steering or left-hand steering, diesel or petrol, electric and hybrid.
-                            manual or automatic; we have you covered.
-                            We have ties with major shipping lines and can quote you a CNF rate to your destination, or arrange your own logistics and we will quote you FOB. Pick from thousands of stocks ready for delivery from our yards. Brand New Armored Vehicles are also available from bulletproof grades of BR1 to BR7.and we have built a reputation for being the go-to destination for car shoppers looking for a hassle-free experience. We are committed to providing you with a personalized experience, whether you are buying your first car or adding to your collection.
-                        </p>
-                            
-                           <p> At Al Elise the cars, we believe that the car buying process should be enjoyable and stress-free. That's why our team of friendly and knowledgeable sales professionals is here to guide you through every step of the process. We will work with you to understand your unique needs and help you find the perfect vehicle that fits your lifestyle and budget.
-                            Our inventory is always changing, so be sure to check back often to see the latest additions. Our experienced technicians thoroughly inspect and service every vehicle in our inventory to ensure that they meet our high standards of quality and reliability.
-                            We also offer a range of financing options to help make your dream of owning a new or used car a reality. Our finance team works with a variety of lenders to find you the best rates and terms available, regardless of your credit history.
-                            At Al Elise the cars, we are committed to building long-lasting relationships with our customers. We pride ourselves on providing exceptional customer service, and we are always here to answer any questions you may have. Whether you need help finding the perfect car or have questions about financing, our team is here to help.
-                            Thank you for considering Elise Dubai for your automotive needs. We look forward to helping you find your next vehicle! </p>
-
-                        
-                    </div>
+<!-- ***** Blog Start ***** -->
+<section class="section" id="our-classes">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Read our <em>Blog</em></h2>
+                    <img src="assets/images/line-dec.png" alt="">
+                    <p>Our car dealership's blog is the perfect place to stay up-to-date on industry news,
+                         learn about new models and features, and get helpful tips for maintaining your vehicle. 
+                        Check out our latest posts and rev up your knowledge!</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ***** Blog Start ***** -->
-    <section class="section" id="our-classes">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading">
-                        <h2>Read our <em>Blog</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
-                        <p>Our car dealership's blog is the perfect place to stay up-to-date on industry news,
-                             learn about new models and features, and get helpful tips for maintaining your vehicle. 
-                            Check out our latest posts and rev up your knowledge!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="tabs">
-                
-              <div class="col-lg-4">
-                <ul>
-                    {% for Post in blogpost|slice:":3" %}
-                  <li><a href='#{{ Post.id }}'>{{ Post.title }}</a></li>
-                  {% endfor%}
-                  <div class="main-rounded-button"><a href="blog.html">Read More</a></div>
-                </ul>
-              </div>
-              <div class="col-lg-8">
+        <div class="row" id="tabs">
+            
+          <div class="col-lg-4">
+            <ul>
                 {% for Post in blogpost|slice:":3" %}
-                <section class='tabs-content'>
-                  <article id='{{ Post.id }}'>
-                    <img src="{{Post.image.url}}" alt="">
-                    <h4>{{ Post.title }}</h4>
+              <li><a href='#{{ Post.id }}'>{{ Post.title }}</a></li>
+              {% endfor%}
+              <div class="main-rounded-button"><a href="blog.html">Read More</a></div>
+            </ul>
+          </div>
+          <div class="col-lg-8">
+            {% for Post in blogpost|slice:":3" %}
+            <section class='tabs-content'>
+              <article id='{{ Post.id }}'>
+                <img src="{{Post.image.url}}" alt="">
+                <h4>{{ Post.title }}</h4>
 
-                    <p><i class="fa fa-user"></i> {{ Post.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ Post.created_at }} &nbsp;|&nbsp; <i class="fa fa-comments"></i>  15 comments</p>
+                <p><i class="fa fa-user"></i> {{ Post.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ Post.created_at }} &nbsp;|&nbsp;</p>
 
-                    <p> {{ Post.content|slice:":200" }}</p>
-                    <div class="main-button">
-                        <a href="blog-details.html">Continue Reading</a>
-                    </div>
-                  </article>    
-                </section>
-                
-                {% endfor%}
-              </div>
-            </div>
+                <p> {{ Post.content|slice:":200" }}</p>
+                <div class="main-button">
+                    <a href="{% url 'blogviewer' Post.id %}">Continue Reading</a>
+                </div>
+              </article>    
+            </section>
+            
+            {% endfor%}
+          </div>
         </div>
-    </section>
-    <!-- ***** Blog End ***** -->
-    <!-- ***** Call to Action Start ***** -->
-    <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cta-content">
-                        <h2>Send us a <em>message</em></h2>
-                        <p>Have a question ? Send us a message today and our team will be happy to assist you!</p>
-                        <div class="main-button">
-                            <a href="{% url 'contact' %}">Contact us</a>
-                        </div>
+    </div>
+</section>
+<!-- ***** Blog End ***** -->
+<!-- ***** Call to Action Start ***** -->
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <h2>Send us a <em>message</em></h2>
+                    <p>Have a question ? Send us a message today and our team will be happy to assist you!</p>
+                    <div class="main-button">
+                        <a href="{% url 'contact' %}">Contact us</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ***** Call to Action End ***** -->
-
-    {% include 'footer.html'%}
-   
+    </div>
+</section>
+{% endblock %}

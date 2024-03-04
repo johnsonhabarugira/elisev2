@@ -1,9 +1,12 @@
-{% load static %}
- {% include 'header.html'%}
+{% extends 'base.html' %}
 
+{% block title %}About - Al Elise The Cars{% endblock %}
+
+{% block content %}
+{% load static %}
 
  
- <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -30,6 +33,7 @@
               <li><a href='#tabs-1'><i class="fa fa-soccer-ball-o"></i> Our Goals</a></li>
               <li><a href='#tabs-2'><i class="fa fa-briefcase"></i> Our Work</a></a></li>
               <li><a href='#tabs-3'><i class="fa fa-heart"></i> Our Passion</a></a></li>
+              <li><a href='#tabs-4'><i class="fa fa-heart"></i> Our History</a></a></li>
             </ul>
           </div>
           <div class="col-lg-8">
@@ -62,6 +66,26 @@
                 <p>We know that every customer has unique needs and preferences, which is why we offer a wide selection of high-quality vehicles from some of the world's top manufacturers. Our knowledgeable and friendly sales team is here to help you navigate our inventory and find the car that's just right for you.</p>
                 <p>At Al Elise, we are committed to providing you with exceptional customer service and a car buying experience that exceeds your expectations. Visit us today and discover why our passion for cars is matched only by our dedication to our customers.</p>
               </article>
+              <article id='tabs-4'>
+                <img src="assets/images/about-image-3-940x460.jpg" alt="">
+                <h4>Our History</h4>
+                
+                       
+                        
+                <p> We have been established moto vehicles dealership since 2007s We have been providing quality vehicles to Government agencies, NGOs, Hospitals, Embassies, Businesses, and private customers at discounted rates.
+                    We offer consumer vehicles and light commercial vehicles from Toyota, Honda, Nissan, Mitsubishi, Mercedes Benz and etc. If you’re looking for cars with Right-hand steering or left-hand steering, diesel or petrol, electric and hybrid.
+                    manual or automatic; we have you covered.
+                    We have ties with major shipping lines and can quote you a CNF rate to your destination, or arrange your own logistics and we will quote you FOB. Pick from thousands of stocks ready for delivery from our yards. Brand New Armored Vehicles are also available from bulletproof grades of BR1 to BR7.and we have built a reputation for being the go-to destination for car shoppers looking for a hassle-free experience. We are committed to providing you with a personalized experience, whether you are buying your first car or adding to your collection.
+                </p>
+                    
+                   <p> At Al Elise the cars, we believe that the car buying process should be enjoyable and stress-free. That's why our team of friendly and knowledgeable sales professionals is here to guide you through every step of the process. We will work with you to understand your unique needs and help you find the perfect vehicle that fits your lifestyle and budget.
+                    Our inventory is always changing, so be sure to check back often to see the latest additions. Our experienced technicians thoroughly inspect and service every vehicle in our inventory to ensure that they meet our high standards of quality and reliability.
+                    We also offer a range of financing options to help make your dream of owning a new or used car a reality. Our finance team works with a variety of lenders to find you the best rates and terms available, regardless of your credit history.
+                    At Al Elise the cars, we are committed to building long-lasting relationships with our customers. We pride ourselves on providing exceptional customer service, and we are always here to answer any questions you may have. Whether you need help finding the perfect car or have questions about financing, our team is here to help.
+                    Thank you for considering Elise Dubai for your automotive needs. We look forward to helping you find your next vehicle! </p>
+
+                
+            </article>
             </section>
           </div>
         </div>
@@ -76,9 +100,8 @@
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
                     <h2>Send us a <em>message</em></h2>
-                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
                     <div class="main-button">
-                        <a href="contact.html">Contact us</a>
+                        <a href="{% url 'contact' %}">Contact us</a>
                     </div>
                 </div>
             </div>
@@ -88,8 +111,4 @@
 <!-- ***** Call to Action End ***** -->
 
 
-
-
-{% include 'footer.html'%}
-
-
+{% endblock %}

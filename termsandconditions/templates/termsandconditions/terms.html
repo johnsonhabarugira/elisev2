@@ -1,36 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Terms - Al Elise The Cars{% endblock %}
+
+{% block content %}
 {% load static %}
 
-{%include 'header.html'%}
-    <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cta-content">
-                        
-                        <h2>Read our <em>Terms</em></h2>
-                    </div>
+
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    
+                    <h2>Read our <em>Terms</em></h2>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ***** Our Classes Start ***** -->
-    <section class="section" id="our-classes">
-        <div class="container">
+<!-- ***** Our Classes Start ***** -->
+<section class="section" id="our-classes">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+      
+        <section class='tabs-content'>
+          <article>{% for term in terms %}
+            <h4>{{ term.term }}</h4>
+           <p>{{ term.description }}</p>
             <br>
-            <br>
-            <br>
-          
-            <section class='tabs-content'>
-              <article>{% for term in terms %}
-                <h4>{{ term.term }}</h4>
-               <p>{{ term.description }}</p>
-                <br>
-                {% endfor %}
-                 </article>
-            </section>
-        </div>
-    </section>
-    <!-- ***** Our Classes End ***** -->
-    
-{%include 'footer.html'%}
+            {% endfor %}
+             </article>
+        </section>
+    </div>
+</section>
+<!-- ***** Our Classes End ***** -->
+
+{% endblock %}

@@ -24,20 +24,42 @@ def paginatevehicles(request, allvehicles, results):
     custom_range = range(leftIndex, rightIndex)
     return custom_range, allvehicles
 
+
+
+    
+def paginatepart(request, parts, results):
+    page = request.GET.get('page')
+    results = 2
+    paginator = Paginator(parts, results)
+    try:
+     parts = paginator.page(page)
+    except PageNotAnInteger:
+        page =1
+        parts = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        parts = paginator.page(page)
+    leftIndex = (int(page) -4)
+    if leftIndex < 1:
+        leftIndex = 1
+    rightIndex = (int(page) + 5)
+    if rightIndex > paginator.num_pages:
+        rightIndex = paginator.num_pages +1
+
+    custom_range = range(leftIndex, rightIndex)
+    return custom_range, parts
+
+
+
+
+
 def searchcars(request):
     
-    model = ''
-    type = ''
-    transmission = ''
+    title = ''
 
-    if request.GET.get('model'):
-        model = request.GET.get('model')
+    if request.GET.get('title'):
+        title = request.GET.get('title')
 
-    if request.GET.get('transmission'):
-        transmission = request.GET.get('transmission')
-
-    if request.GET.get('max_price'):
-        max_price = request.GET.get('max_price')
     # filter the Car objects based on the search criteria
-    allvehicles = Car.objects.filter(transmission__icontains=transmission,model__name__icontains=model)
-    return allvehicles,model,transmission
+    allvehicles = Car.objects.filter(title__icontains=title).select_related('model')
+    return allvehicles,title

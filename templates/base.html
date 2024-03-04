@@ -1,0 +1,227 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="WELCOME TO OUR CAR DEALERSHIP, WHERE YOUR DREAM CAR AWAITS!">
+    <meta name="author" content="Al Elise The Cars">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'assets/images/favicon.png' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <style>
+        .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-top: -10px;
+  height: 40px;
+  margin-right: 10px;
+}
+.header-area .logo {
+    margin: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo img {
+    height: 30px;
+  }
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media li:last-child {
+  margin-right: 0;
+}
+
+.social-media li a {
+  display: block;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #272727;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.social-media li a:hover {
+  background-color: #000000;
+}
+
+
+    </style>
+
+    </head>
+    
+    <body>
+        
+   
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-12"style="">
+                    <nav class="main-nav" style="">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'home' %}" class="logo"><img style="" src="{% static 'assets/images/logo.png' %}" alt=""></em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a  {% if request.path == '/' %}class="active"{% endif %} href="{% url 'home' %}">Home</a></li>
+                            <li><a  {% if request.path == '/vehicles/' %}class="active"{% endif %} href="{% url 'vehicles' %}">Cars</a></li>
+                            <li><a  {% if request.path == '/parts/' %}class="active"{% endif %} href="{% url 'parts' %}">Parts</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                              
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{% url 'about' %}">About Us</a>
+                                    <a class="dropdown-item" href="{% url 'faq' %}">FAQ</a>
+                                    <a class="dropdown-item" href="{% url 'terms' %}">Terms</a>
+                                </div>
+                            </li>
+                            <li><a  {% if request.path == '/blog/' %}class="active"{% endif %} href="{% url 'blog' %}">Blog</a></li>
+                            <li><a  {% if request.path == '/our_team/' %}class="active"{% endif %} href="{% url 'our_team' %}">Team</a></li>
+                            <li><a  {% if request.path == '/contact/' %}class="active"{% endif %} href="{% url 'contact' %}">contact</a></li> 
+
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F5VM9PRSZY">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F5VM9PRSZY');
+</script>
+    </header>
+    <main>
+        
+        {% block content %}{% endblock %}
+    </main>
+    <!--<footer>
+        <nav>
+          <ul>
+            <li><a class="" href="{% url 'about' %}">About Us</a></li>
+            <li><a class="" href="{% url 'blog' %}">Blog</a></li>
+            <li><a class="" href="{% url 'our_team'%}">Team</a> </li>
+            <li><a class="" href="{% url 'faq' %}">FAQ</a></li>
+            <li><a class="" href="{% url 'terms' %}">Terms</a></li>
+            <li><a class="" href="{% url 'vehicles' %}">Cars</a></li>
+            <li><a class="" href="{% url 'parts' %}">Parts</a></li>
+            <li><a class="" href="{% url 'contact' %}">Contacts</a></li>
+          </ul>
+        </nav>
+        <p>
+            Copyright © 
+            
+        </p>
+      </footer>-->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a class="" href="{% url 'about' %}">About Us</a></li>
+                <li><a class="" href="{% url 'blog' %}">Blog</a></li>
+                <li><a class="" href="{% url 'our_team'%}">Team</a> </li>
+                <li><a class="" href="{% url 'faq' %}">FAQ</a></li>
+                <li><a class="" href="{% url 'terms' %}">Terms</a></li>
+                <li><a class="" href="{% url 'vehicles' %}">Cars</a></li>
+                <li><a class="" href="{% url 'parts' %}">Parts</a></li>
+                <li><a class="" href="{% url 'contact' %}">Contacts</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h4>Connect with Us</h4>
+              <ul class="social-media"> 
+                <li><a href="https://wa.me/971558429052?text=Hi%20there,%20I%20need%20assistance%20in%20buying%20a%20car%20or%20spare%20part%20from%20alelisethecars.com.%20Can%20you%20please%20help%20me%20out%3F"target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a href="tel:+971558429052"target="_blank"><i class="fa fa-phone"></i></a></li>
+                <li><a href="https://instagram.com/elisedubai?igshid=MzRlODBiNWFlZA=="target="_blank"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'assets/js/popper.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/js/imgfix.min.js' %}"></script> 
+    <script src="{% static 'assets/js/mixitup.js' %}"></script> 
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+    
+    <!-- Global Init -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>
