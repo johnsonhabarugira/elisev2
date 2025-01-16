@@ -35,8 +35,7 @@ A comprehensive web application built with Django to manage a car dealership. Th
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/car-dealership.git
-   cd car-dealership
+   
    ```
 
 2. Create a virtual environment:
